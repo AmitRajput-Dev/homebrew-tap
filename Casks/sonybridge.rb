@@ -7,19 +7,19 @@ cask "sonybridge" do
   desc "Control Sony headphones (noise cancelling, ambient sound, EQ, battery) from macOS"
   homepage "https://github.com/AmitRajput-Dev/SonyBridge"
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "SonyBridge.app"
 
-  # App is ad-hoc signed (not notarized); clear the quarantine flag so it launches.
+  # App is ad-hoc signed (not notarized); clear quarantine so it launches without a Gatekeeper block.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/SonyBridge.app"]
   end
 
   caveats <<~EOS
-    SonyBridge is not notarized. If macOS still blocks it, run:
+    Connect your Sony headphones in macOS Bluetooth settings, then open SonyBridge.
+    If macOS still blocks it, run:
       xattr -dr com.apple.quarantine "#{appdir}/SonyBridge.app"
-    Then connect your Sony headphones in macOS Bluetooth settings and open SonyBridge.
   EOS
 end

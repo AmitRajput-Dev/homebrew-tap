@@ -1,6 +1,6 @@
 cask "sonybridge" do
-  version "0.2.0"
-  sha256 "0900a2d151918d0fe35c35dc568a3b0d831beb71661da8dc61d2e513a82b7abb"
+  version "0.3.0"
+  sha256 "a98cbdb5561df8f20c92c8253cd17832d65f1dc0d99ea3e2871e7bc2da5a0218"
 
   url "https://github.com/AmitRajput-Dev/SonyBridge/releases/download/v#{version}/SonyBridge-macOS.zip"
   name "SonyBridge"
